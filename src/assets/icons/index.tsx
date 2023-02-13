@@ -5,6 +5,8 @@ import IconHistoryMenu from "./ic_history_menu.svg";
 import IconLocationMenu from "./ic_location_menu.svg";
 import IconPromoMenu from "./ic_promo_menu.svg";
 import IconSearch from "./ic_search.svg";
+import IconStar from "./ic_star.svg";
+import IconFavorite from "./ic_favorite.svg";
 
 export {
   IconCartMenu,
@@ -14,4 +16,6 @@ export {
   IconLocationMenu,
   IconPromoMenu,
   IconSearch,
+  IconStar,
+  IconFavorite,
 };

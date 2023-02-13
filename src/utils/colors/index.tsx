@@ -4,6 +4,7 @@ const mainColors = {
   purple1: "#352D48",
   gray1: "#7A7A7A",
   gray2: "#393939",
+  gray3: "#1E1E1E",
   orange1: "#F6825D",
 };
 
@@ -17,4 +18,5 @@ export const colors = {
     input: mainColors.gray1,
   },
   input: mainColors.gray2,
+  dot: mainColors.gray3,
 };
