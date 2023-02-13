@@ -1,15 +1,19 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import { colors } from "../../../utils/colors";
+import { colors } from "../../../utils";
+import BtnIconFav from "./BtnIconFav";
 
 interface ButtonProps {
-  item: string;
-  onPress: (item: string) => void;
+  type?: string;
+  onPress: () => void;
 }
 
-const Button = ({ onPress, item }: ButtonProps) => {
+const Button = ({ type, onPress }: ButtonProps) => {
+  if (type === "btn-menu-fav") {
+    return <BtnIconFav onPress={onPress} />;
+  }
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onPress(item)}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text}>Button Component!</Text>
     </TouchableOpacity>
   );
