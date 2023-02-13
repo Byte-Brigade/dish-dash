@@ -1,20 +1,19 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Button } from "../../components";
-import { StackParams } from "../../App";
+import { Button, Header } from "../../components";
+import { StackParams } from "../../router";
 import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { colors } from "../../utils/colors";
 
-type HomeProps = NativeStackScreenProps<StackParams, "Home">;
+type HomeProps = NativeStackScreenProps<StackParams>;
 
 const Home = ({ navigation }: HomeProps) => {
   return (
-    <View style={styles.container}>
-      <Text>Home View!</Text>
-      <Button
-        item="Gyutto"
-        onPress={(item) => navigation.navigate("Cart", { item })}
-      />
+    <View style={styles.page}>
+      <View style={styles.content}>
+        <Text>Home View!</Text>
+        <Button onPress={() => navigation.navigate("Cart")} />
+      </View>
     </View>
   );
 };
@@ -22,10 +21,12 @@ const Home = ({ navigation }: HomeProps) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
     backgroundColor: colors.white,
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  content: {
+    flex: 1,
+    padding: 16,
   },
 });
