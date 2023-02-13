@@ -10,6 +10,7 @@ type HomeProps = NativeStackScreenProps<StackParams>;
 const Home = ({ navigation }: HomeProps) => {
   return (
     <View style={styles.page}>
+      <Header />
       <View style={styles.content}>
         <Text>Home View!</Text>
         <Button onPress={() => navigation.navigate("Cart")} />

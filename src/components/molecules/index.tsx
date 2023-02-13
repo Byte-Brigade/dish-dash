@@ -1,3 +1,4 @@
 import BottomNavigation from "./BottomNavigation";
+import Header from "./Header";
 
-export { BottomNavigation };
+export { BottomNavigation, Header };
