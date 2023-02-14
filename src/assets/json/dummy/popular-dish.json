@@ -5,28 +5,32 @@
       "name": "Nasi Kebuli",
       "star": 4.7,
       "rating": 200,
-      "pic": "https://placeimg.com/640/480/tech"
+      "pic": "https://placeimg.com/640/480/tech",
+      "price": 16000
     },
     {
       "id": 2,
       "name": "Ayam Geprek Juara Sambelnya",
       "star": 4.4,
       "rating": 600,
-      "pic": "https://placeimg.com/640/480/tech"
+      "pic": "https://placeimg.com/640/480/tech",
+      "price": 21000
     },
     {
       "id": 3,
       "name": "Nasi Kebuli 2",
       "star": 4.7,
       "rating": 200,
-      "pic": "https://placeimg.com/640/480/tech"
+      "pic": "https://placeimg.com/640/480/tech",
+      "price": 16000
     },
     {
       "id": 4,
       "name": "Ayam Geprek Juara Sambelnya 2",
       "star": 4.4,
       "rating": 600,
-      "pic": "https://placeimg.com/640/480/tech"
+      "pic": "https://placeimg.com/640/480/tech",
+      "price": 21000
     }
   ]
 }

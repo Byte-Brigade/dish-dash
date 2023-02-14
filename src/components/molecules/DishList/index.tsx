@@ -8,11 +8,12 @@ interface DishListProps {
   name: string;
   stars: number;
   rating: number;
+  onPress: () => void;
 }
 
-const DishList = ({ pic, name, stars, rating }: DishListProps) => {
+const DishList = ({ pic, name, stars, rating, onPress }: DishListProps) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={pic} style={styles.pic} />
       <TouchableOpacity style={styles.addFavWrapper}>
         <IconFavorite style={styles.addFav} />
