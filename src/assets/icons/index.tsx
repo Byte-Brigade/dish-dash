@@ -7,6 +7,10 @@ import IconPromoMenu from "./ic_promo_menu.svg";
 import IconSearch from "./ic_search.svg";
 import IconStar from "./ic_star.svg";
 import IconFavorite from "./ic_favorite.svg";
+import IconShare from "./ic_share.svg";
+import IconMinusBlack from "./ic_minus_black.svg";
+import IconPlusBlack from "./ic_plus_black.svg";
+import IconCartWhite from "./ic_cart_white.svg";
 
 export {
   IconCartMenu,
@@ -18,4 +22,8 @@ export {
   IconSearch,
   IconStar,
   IconFavorite,
+  IconShare,
+  IconMinusBlack,
+  IconPlusBlack,
+  IconCartWhite,
 };

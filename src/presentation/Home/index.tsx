@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
-import React from "react";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import GestureRecognizer from "react-native-swipe-gestures";
 import {
   CatDish1,
   CatDish2,
@@ -8,16 +9,29 @@ import {
   CatDish4,
   CatDish5,
   PopDish1,
-  PopDish2,
 } from "../../assets";
 import { JSONPopularDish } from "../../assets/json";
-import { DishCategory, DishList, Gap, Header } from "../../components";
+import {
+  DishCategory,
+  DishList,
+  Gap,
+  Header,
+  ModalCustom,
+} from "../../components";
 import { StackParams } from "../../router";
 import { colors } from "../../utils/colors";
 
 type HomeProps = NativeStackScreenProps<StackParams>;
 
 const Home = ({ navigation }: HomeProps) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalData, setModalData] = useState({
+    name: "",
+    star: 0,
+    rating: 0,
+    price: 0,
+  });
+
   return (
     <View style={styles.page}>
       <Header />
@@ -43,17 +57,32 @@ const Home = ({ navigation }: HomeProps) => {
           </View>
           <Text>Popular menu items</Text>
           <View style={styles.popular}>
-            {JSONPopularDish.data.map((item) => {
-              return (
-                <DishList
-                  key={item.id}
-                  pic={PopDish1}
-                  name={item.name}
-                  stars={item.star}
-                  rating={item.rating}
-                />
-              );
-            })}
+            <View style={styles.popularItem}>
+              {JSONPopularDish.data.map((item) => {
+                return (
+                  <DishList
+                    key={item.id}
+                    pic={PopDish1}
+                    name={item.name}
+                    stars={item.star}
+                    rating={item.rating}
+                    onPress={() => {
+                      setModalVisible(!modalVisible);
+                      setModalData(item);
+                    }}
+                  />
+                );
+              })}
+            </View>
+            <GestureRecognizer
+              onSwipeDown={() => setModalVisible(!modalVisible)}
+            >
+              <ModalCustom
+                visible={modalVisible}
+                onClose={() => setModalVisible(!modalVisible)}
+                data={modalData}
+              />
+            </GestureRecognizer>
           </View>
         </View>
       </ScrollView>
@@ -76,7 +105,8 @@ const styles = StyleSheet.create({
   },
   popular: {
     paddingTop: 16,
-    marginHorizontal: "auto",
+  },
+  popularItem: {
     flexDirection: "row",
     flexWrap: "wrap",
   },

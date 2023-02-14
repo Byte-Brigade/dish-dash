@@ -2,19 +2,24 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { colors } from "../../../utils";
 import BtnIconFav from "./BtnIconFav";
+import BtnIconText from "./BtnIconText";
 
 interface ButtonProps {
   type?: string;
   onPress: () => void;
+  text?: string;
 }
 
-const Button = ({ type, onPress }: ButtonProps) => {
+const Button = ({ type, onPress, text }: ButtonProps) => {
   if (type === "btn-menu-fav") {
     return <BtnIconFav onPress={onPress} />;
   }
+  if (type === "btn-add-cart") {
+    return <BtnIconText onPress={onPress} />;
+  }
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text style={styles.text}>Button Component!</Text>
+      <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
 };
