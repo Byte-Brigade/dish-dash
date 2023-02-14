@@ -1,17 +1,14 @@
 import React from "react";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import {
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  ViewStyle,
-} from "react-native";
-import {
-  IconHomeMenuActive,
   IconCartMenu,
-  IconLocationMenu,
-  IconPromoMenu,
+  IconCartMenuActive,
   IconHistoryMenu,
+  IconHistoryMenuActive,
+  IconHomeMenu,
+  IconHomeMenuActive,
+  IconPromoMenu,
+  IconPromoMenuActive,
 } from "../../../assets";
 import { colors } from "../../../utils";
 
@@ -25,16 +22,16 @@ interface TabItemProps {
 const TabItem = ({ title, active, onPress, onLongPress }: TabItemProps) => {
   const Icon = () => {
     if (title === "Home") {
-      return active ? <IconHomeMenuActive /> : <IconHomeMenuActive />;
+      return active ? <IconHomeMenuActive /> : <IconHomeMenu />;
     }
     if (title === "Cart") {
-      return active ? <IconCartMenu /> : <IconCartMenu />;
+      return active ? <IconCartMenuActive /> : <IconCartMenu />;
     }
     if (title === "Promo") {
-      return active ? <IconPromoMenu /> : <IconPromoMenu />;
+      return active ? <IconPromoMenuActive /> : <IconPromoMenu />;
     }
     if (title === "Riwayat") {
-      return active ? <IconHistoryMenu /> : <IconHistoryMenu />;
+      return active ? <IconHistoryMenuActive /> : <IconHistoryMenu />;
     }
     return <IconHomeMenuActive />;
   };
