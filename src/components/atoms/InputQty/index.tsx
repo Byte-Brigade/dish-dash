@@ -1,13 +1,21 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
 import React, { useState } from "react";
 import { IconMinusBlack, IconPlusBlack } from "../../../assets";
 import { colors } from "../../../utils";
 
 interface InputQtyProps {
   count: number;
+  type?: string;
 }
 
-const InputQty = ({ count }: InputQtyProps) => {
+const InputQty = ({ count, type }: InputQtyProps) => {
   const [qty, setQty] = useState(count);
 
   const plusQtyHandler = () => {
@@ -19,12 +27,18 @@ const InputQty = ({ count }: InputQtyProps) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.icon} onPress={minusQtyHandler}>
+    <View style={{ ...styles({ type }).container }}>
+      <TouchableOpacity
+        style={{ ...styles({ type }).icon }}
+        onPress={minusQtyHandler}
+      >
         <IconMinusBlack />
       </TouchableOpacity>
-      <Text style={styles.text}>{qty}</Text>
-      <TouchableOpacity style={styles.icon} onPress={plusQtyHandler}>
+      <Text style={{ ...styles({ type }).text }}>{qty}</Text>
+      <TouchableOpacity
+        style={{ ...styles({ type }).icon }}
+        onPress={plusQtyHandler}
+      >
         <IconPlusBlack />
       </TouchableOpacity>
     </View>
@@ -33,18 +47,25 @@ const InputQty = ({ count }: InputQtyProps) => {
 
 export default InputQty;
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: colors.border,
-    borderRadius: 5,
-  },
-  icon: {
-    marginHorizontal: 5,
-    padding: 10,
-  },
-  text: {
-    marginHorizontal: 14,
-  },
-});
+interface StyleProps {
+  type?: string;
+}
+
+const styles = ({ type }: StyleProps) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: type === "cart" ? colors.white : colors.border,
+      borderRadius: 5,
+      borderWidth: type === "cart" ? 1 : 0,
+      borderColor: type === "cart" ? colors.border : "none",
+    },
+    icon: {
+      marginHorizontal: 5,
+      padding: 10,
+    },
+    text: {
+      marginHorizontal: type === "cart" ? 4 : 14,
+    },
+  });

@@ -11,19 +11,28 @@ import React, { useState } from "react";
 import { IconFavorite, IconShare, IconStar, PopDish2 } from "../../../assets";
 import { colors } from "../../../utils";
 import { Button, Gap, InputQty } from "../../atoms";
+import ModalAddNote from "./ModalAddNote";
 
 interface ModalsProps {
   visible: boolean;
   onClose: () => void;
   data?: { name: string; star: number; rating: number; price: number };
+  type?: string;
 }
 
-const ModalCustom = ({ visible, onClose, data }: ModalsProps) => {
+const ModalCustom = ({ visible, onClose, data, type }: ModalsProps) => {
   const [qty, setQty] = useState(1);
+
+  if (type === "modal-cart-note") {
+    return (
+      <ModalAddNote visible={visible} onClose={onClose} onPress={onClose} />
+    );
+  }
 
   if (!data) {
     return null;
   }
+
   return (
     <View>
       <Modal

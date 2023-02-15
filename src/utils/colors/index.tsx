@@ -3,7 +3,7 @@ const mainColors = {
   green1: "#72B5A2",
   green2: "#CDFC02",
   red1: "#F5835E",
-  purple1: "#352D48",
+  purple1: "#3C283F",
   gray1: "#7A7A7A",
   gray2: "#393939",
   gray3: "#1E1E1E",

@@ -1,15 +1,58 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { colors } from "../../utils/colors";
 import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
+import React, { useState } from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import GestureRecognizer from "react-native-swipe-gestures";
+import { IconMore } from "../../assets";
+import {
+  Button,
+  CartList,
+  CheckoutCard,
+  ChooseDelivery,
+  Divider,
+  Header,
+  ModalCustom,
+} from "../../components";
+import DeliveryAddress from "../../components/atoms/DeliveryAddress";
 import { StackParams } from "../../router";
+import { colors } from "../../utils/colors";
 
 type CartProps = NativeStackScreenProps<StackParams, "Cart">;
 
-const Cart = () => {
+const Cart = ({ navigation }: CartProps) => {
+  const [deliveryType, setDeliveryType] = useState<"delivery" | "pickup">(
+    "delivery"
+  );
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Text>Cart View!</Text>
+    <View style={styles.page}>
+      <Header type="cart-header" onPress={() => navigation.pop()} />
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <ChooseDelivery type={deliveryType} />
+        <Divider />
+        {deliveryType === "delivery" ? <DeliveryAddress /> : <></>}
+        <View style={styles.cartContent}>
+          <CartList onNotePress={() => setModalVisible(!modalVisible)} />
+          <CartList onNotePress={() => setModalVisible(!modalVisible)} />
+          <CartList onNotePress={() => setModalVisible(!modalVisible)} />
+          <CartList onNotePress={() => setModalVisible(!modalVisible)} />
+        </View>
+      </ScrollView>
+      <CheckoutCard />
+      <GestureRecognizer onSwipeDown={() => setModalVisible(!modalVisible)}>
+        <ModalCustom
+          type="modal-cart-note"
+          visible={modalVisible}
+          onClose={() => setModalVisible(!modalVisible)}
+        />
+      </GestureRecognizer>
     </View>
   );
 };
@@ -17,10 +60,15 @@ const Cart = () => {
 export default Cart;
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
     backgroundColor: colors.white,
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  container: {
+    paddingVertical: 16,
+  },
+  cartContent: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
 });
