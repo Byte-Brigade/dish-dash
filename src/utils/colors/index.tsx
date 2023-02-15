@@ -1,6 +1,7 @@
 const mainColors = {
   black1: "#1F1F1F",
   green1: "#72B5A2",
+  green2: "#CDFC02",
   red1: "#F5835E",
   purple1: "#352D48",
   gray1: "#7A7A7A",
@@ -27,4 +28,7 @@ export const colors = {
   border: mainColors.lightgray1,
   border2: mainColors.lightgray2,
   shadow: mainColors.shadow,
+  button: {
+    green: mainColors.green2,
+  },
 };
