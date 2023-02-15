@@ -34,7 +34,7 @@ const Home = ({ navigation }: HomeProps) => {
 
   return (
     <View style={styles.page}>
-      <Header qty={0} />
+      <Header qty={0} onPress={() => navigation.navigate("Cart")} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Text>Select by category</Text>

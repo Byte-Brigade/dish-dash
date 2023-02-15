@@ -16,6 +16,12 @@ import IconShare from "./ic_share.svg";
 import IconMinusBlack from "./ic_minus_black.svg";
 import IconPlusBlack from "./ic_plus_black.svg";
 import IconCartWhite from "./ic_cart_white.svg";
+import IconClose from "./ic_close.svg";
+import IconDelivery from "./ic_delivery.svg";
+import IconPickup from "./ic_pickup.svg";
+import IconAddNote from "./ic_add_note.svg";
+import IconCheckout from "./ic_checkout.svg";
+import IconMore from "./ic_more.svg";
 
 export {
   IconCartMenu,
@@ -36,4 +42,10 @@ export {
   IconMinusBlack,
   IconPlusBlack,
   IconCartWhite,
+  IconClose,
+  IconDelivery,
+  IconPickup,
+  IconAddNote,
+  IconCheckout,
+  IconMore,
 };

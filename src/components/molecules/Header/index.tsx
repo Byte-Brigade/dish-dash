@@ -1,31 +1,28 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  ToastAndroid,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../../../utils";
 import { Button, Gap, SearchInput } from "../../atoms";
+import CartHeader from "./CartHeader";
 
 interface HeaderProps {
-  qty: number;
+  onPress?: () => void;
+  qty?: number;
+  type?: string;
 }
 
-const Header = ({ qty }: HeaderProps) => {
+const Header = ({ onPress, qty, type }: HeaderProps) => {
   const [search, setSearch] = useState("");
 
-  const toast = () => {
-    ToastAndroid.show("Pressed!", ToastAndroid.SHORT);
-  };
+  if (type === "cart-header") {
+    return <CartHeader onPress={onPress!!} />;
+  }
 
   return (
     <View style={styles.container}>
       <Gap height={30} />
       <View style={styles.content}>
         <Text style={styles.text}>DishDash</Text>
-        <Button type="btn-menu-cart" onPress={toast} qty={qty} />
+        <Button type="btn-menu-cart" onPress={onPress!!} qty={qty} />
       </View>
       <Gap height={16} />
       <SearchInput

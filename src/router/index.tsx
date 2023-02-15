@@ -52,8 +52,8 @@ const Router = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="FoodList"
-        component={FoodList}
+        name="Cart"
+        component={Cart}
         options={{ headerShown: false }}
       />
       <Stack.Screen
