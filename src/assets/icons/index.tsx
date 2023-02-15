@@ -1,6 +1,7 @@
 import IconCartMenu from "./ic_cart_menu.svg";
 import IconCartMenuActive from "./ic_cart_menu_active.svg";
 import IconFavMenu from "./ic_fav_menu.svg";
+import IconFavMenuActive from "./ic_fav_menu_active.svg";
 import IconHomeMenu from "./ic_home_menu.svg";
 import IconHomeMenuActive from "./ic_home_menu_active.svg";
 import IconHistoryMenu from "./ic_history_menu.svg";
@@ -20,6 +21,7 @@ export {
   IconCartMenu,
   IconCartMenuActive,
   IconFavMenu,
+  IconFavMenuActive,
   IconHomeMenu,
   IconHomeMenuActive,
   IconHistoryMenu,
