@@ -34,7 +34,7 @@ const Home = ({ navigation }: HomeProps) => {
 
   return (
     <View style={styles.page}>
-      <Header />
+      <Header qty={0} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Text>Select by category</Text>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   content: {
-    paddingHorizontal: 16,
+    padding: 16,
   },
   category: {
     flexDirection: "row",

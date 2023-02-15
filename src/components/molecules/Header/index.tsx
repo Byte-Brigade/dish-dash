@@ -9,7 +9,11 @@ import {
 import { colors } from "../../../utils";
 import { Button, Gap, SearchInput } from "../../atoms";
 
-const Header = () => {
+interface HeaderProps {
+  qty: number;
+}
+
+const Header = ({ qty }: HeaderProps) => {
   const [search, setSearch] = useState("");
 
   const toast = () => {
@@ -21,9 +25,7 @@ const Header = () => {
       <Gap height={30} />
       <View style={styles.content}>
         <Text style={styles.text}>DishDash</Text>
-        <TouchableOpacity>
-          <Button type="btn-menu-fav" onPress={toast} />
-        </TouchableOpacity>
+        <Button type="btn-menu-cart" onPress={toast} qty={qty} />
       </View>
       <Gap height={16} />
       <SearchInput
