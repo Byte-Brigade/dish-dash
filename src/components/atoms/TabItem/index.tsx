@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import {
-  IconCartMenu,
-  IconCartMenuActive,
+  IconFavMenu,
+  IconFavMenuActive,
   IconHistoryMenu,
   IconHistoryMenuActive,
   IconHomeMenu,
@@ -24,11 +24,11 @@ const TabItem = ({ title, active, onPress, onLongPress }: TabItemProps) => {
     if (title === "Home") {
       return active ? <IconHomeMenuActive /> : <IconHomeMenu />;
     }
-    if (title === "Cart") {
-      return active ? <IconCartMenuActive /> : <IconCartMenu />;
-    }
     if (title === "Promo") {
       return active ? <IconPromoMenuActive /> : <IconPromoMenu />;
+    }
+    if (title === "Favorite") {
+      return active ? <IconFavMenuActive /> : <IconFavMenu />;
     }
     if (title === "Riwayat") {
       return active ? <IconHistoryMenuActive /> : <IconHistoryMenu />;

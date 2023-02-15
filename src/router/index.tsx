@@ -3,11 +3,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   Cart,
   Confirmation,
+  Favorite,
   FoodList,
   History,
   Home,
   Payment,
-  Profile,
   Promo,
 } from "../presentation";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -23,6 +23,7 @@ export type StackParams = {
   FoodList: undefined;
   Payment: undefined;
   Confirmation: undefined;
+  Favorite: undefined;
 };
 
 const Stack = createNativeStackNavigator<StackParams>();
@@ -35,8 +36,8 @@ const MainApp = () => {
       screenOptions={{ headerShown: false }}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Cart" component={Cart} />
       <Tab.Screen name="Promo" component={Promo} />
+      <Tab.Screen name="Favorite" component={Favorite} />
       <Tab.Screen name="Riwayat" component={History} />
     </Tab.Navigator>
   );
