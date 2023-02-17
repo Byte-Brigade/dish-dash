@@ -1,15 +1,16 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
-import React, { useState } from "react";
+import { NativeStackScreenProps } from '@react-navigation/native-stack/lib/typescript/src/types';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from "react-native";
-import GestureRecognizer from "react-native-swipe-gestures";
-import { IconMore } from "../../assets";
+} from 'react-native';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import { IconMore } from '../../assets';
 import {
+  BottomModal,
   Button,
   CartList,
   CheckoutCard,
@@ -17,16 +18,16 @@ import {
   Divider,
   Header,
   ModalCustom,
-} from "../../components";
-import DeliveryAddress from "../../components/atoms/DeliveryAddress";
-import { StackParams } from "../../router";
-import { colors } from "../../utils/colors";
+} from '../../components';
+import DeliveryAddress from '../../components/atoms/DeliveryAddress';
+import { StackParams } from '../../router';
+import { colors } from '../../utils/colors';
 
-type CartProps = NativeStackScreenProps<StackParams, "Cart">;
+type CartProps = NativeStackScreenProps<StackParams, 'Cart'>;
 
 const Cart = ({ navigation }: CartProps) => {
-  const [deliveryType, setDeliveryType] = useState<"delivery" | "pickup">(
-    "delivery"
+  const [deliveryType, setDeliveryType] = useState<'delivery' | 'pickup'>(
+    'delivery',
   );
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -37,7 +38,7 @@ const Cart = ({ navigation }: CartProps) => {
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <ChooseDelivery type={deliveryType} />
         <Divider />
-        {deliveryType === "delivery" ? <DeliveryAddress /> : <></>}
+        {deliveryType === 'delivery' ? <DeliveryAddress /> : <></>}
         <View style={styles.cartContent}>
           <CartList onNotePress={() => setModalVisible(!modalVisible)} />
           <CartList onNotePress={() => setModalVisible(!modalVisible)} />
