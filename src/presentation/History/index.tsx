@@ -1,12 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { BottomModal } from '../../components';
 
 const History = () => {
-  return (
-    <View>
-      <Text>History View!</Text>
-    </View>
-  );
+  return <BottomModal />;
 };
 
 export default History;
