@@ -30,10 +30,10 @@ const TabItem = ({ title, active, onPress, onLongPress }: TabItemProps) => {
     if (title === "Favorite") {
       return active ? <IconFavMenuActive /> : <IconFavMenu />;
     }
-    if (title === "Riwayat") {
+    if (title === "History") {
       return active ? <IconHistoryMenuActive /> : <IconHistoryMenu />;
     }
-    return <IconHomeMenuActive />;
+    return <IconHomeMenu />;
   };
   return (
     <TouchableOpacity

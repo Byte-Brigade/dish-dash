@@ -18,7 +18,7 @@ export type StackParams = {
   Home: any;
   Cart: undefined;
   Promo: undefined;
-  Riwayat: undefined;
+  History: undefined;
   Profile: undefined;
   FoodList: undefined;
   Payment: undefined;
@@ -38,7 +38,7 @@ const MainApp = () => {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Promo" component={Promo} />
       <Tab.Screen name="Favorite" component={Favorite} />
-      <Tab.Screen name="Riwayat" component={History} />
+      <Tab.Screen name="History" component={History} />
     </Tab.Navigator>
   );
 };

@@ -1,22 +1,22 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useCallback, useMemo, useRef } from 'react';
 import BottomSheet, {
-  BottomSheetView,
   BottomSheetFooter,
-} from '@gorhom/bottom-sheet';
-import { IconMore } from '../../../assets';
-import { Button } from '../../atoms';
-import { colors } from '../../../utils';
+  BottomSheetFooterProps,
+} from "@gorhom/bottom-sheet";
+import React, { useCallback, useMemo, useRef } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { IconMore } from "../../../assets";
+import { colors } from "../../../utils";
+import { Button } from "../../atoms";
 
 const CheckoutCard = () => {
   const sheetRef = useRef<BottomSheet>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['25%', '54%'], []);
+  const snapPoints = useMemo(() => ["25%", "54%"], []);
 
   // renders
   const renderFooter = useCallback(
-    (props) => (
+    (props: BottomSheetFooterProps) => (
       <BottomSheetFooter {...props}>
         <View style={styles.checkout}>
           <View style={[styles.checkoutContent, styles.total]}>
@@ -33,13 +33,13 @@ const CheckoutCard = () => {
             <Button
               type="btn-checkout"
               text="Checkout Now"
-              onPress={() => alert('a')}
+              onPress={() => alert("a")}
             />
           </View>
         </View>
       </BottomSheetFooter>
     ),
-    [],
+    []
   );
 
   return (
@@ -68,7 +68,7 @@ const CheckoutCard = () => {
         <Button
           type="btn-promo-code"
           text="Promo Code"
-          onPress={() => alert('a')}
+          onPress={() => alert("a")}
         />
       </View>
     </BottomSheet>
@@ -79,27 +79,27 @@ export default CheckoutCard;
 
 const styles = StyleSheet.create({
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 16,
   },
   description: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 8,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   footerContainer: {
     padding: 12,
     margin: 12,
     borderRadius: 12,
-    backgroundColor: '#80f',
+    backgroundColor: "#80f",
   },
   footerText: {
-    textAlign: 'center',
-    color: 'white',
-    fontWeight: '800',
+    textAlign: "center",
+    color: "white",
+    fontWeight: "800",
   },
   bottomShadow: {
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -112,11 +112,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 45,
-    backgroundColor: 'grey',
+    backgroundColor: "grey",
   },
   contentContainer: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   checkout: {
     backgroundColor: colors.white,
@@ -126,21 +126,21 @@ const styles = StyleSheet.create({
     height: 1,
     width: 360,
     backgroundColor: colors.border,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginVertical: 16,
   },
   checkoutContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   total: {
     paddingVertical: 16,
   },
   totalText: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   paymentText: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   checkoutButton: {
     paddingVertical: 16,
