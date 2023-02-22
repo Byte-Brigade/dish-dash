@@ -84,6 +84,6 @@ const styles = StyleSheet.create({
   dot: {
     width: 2,
     height: 2,
-    backgroundColor: colors.dot,
+    backgroundColor: colors.dot.primary,
   },
 });

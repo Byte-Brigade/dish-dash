@@ -1,35 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../../../utils";
-import { Button, Gap, SearchInput } from "../../atoms";
 import CartHeader from "./CartHeader";
+import HomeHeader from "./HomeHeader";
 
 interface HeaderProps {
   onPress?: () => void;
   qty?: number;
   type?: string;
+  name?: string;
 }
 
-const Header = ({ onPress, qty, type }: HeaderProps) => {
-  const [search, setSearch] = useState("");
-
+const Header = ({ onPress, qty, type, name }: HeaderProps) => {
   if (type === "cart-header") {
     return <CartHeader onPress={onPress!!} />;
   }
 
+  if (type === "home-header") {
+    return <HomeHeader qty={qty} onPress={onPress!!} />;
+  }
+
   return (
     <View style={styles.container}>
-      <Gap height={30} />
       <View style={styles.content}>
-        <Text style={styles.text}>DishDash</Text>
-        <Button type="btn-menu-cart" onPress={onPress!!} qty={qty} />
+        <Text style={styles.text}>{name}</Text>
       </View>
-      <Gap height={16} />
-      <SearchInput
-        value={search}
-        onChangeText={(value) => setSearch(value)}
-        placeholder="Search your cravings"
-      />
     </View>
   );
 };
@@ -38,15 +33,15 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    height: 167,
+    height: 81,
     backgroundColor: colors.primary,
+    paddingTop: 30,
     padding: 16,
     borderBottomStartRadius: 10,
     borderBottomEndRadius: 10,
   },
   content: {
     flexDirection: "row",
-    justifyContent: "space-between",
   },
   text: {
     fontSize: 24,
