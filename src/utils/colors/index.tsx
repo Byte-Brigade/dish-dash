@@ -9,7 +9,9 @@ const mainColors = {
   gray3: "#1E1E1E",
   lightgray1: "#E8E8E8",
   lightgray2: "#ADADAD",
+  lightgray3: "#D9D9D9",
   orange1: "#F6825D",
+  orange2: "#D2623D",
   shadow: "rgba(0,0,0,0.5)",
 };
 
@@ -22,9 +24,13 @@ export const colors = {
   text: {
     primary: mainColors.purple1,
     input: mainColors.gray1,
+    status: mainColors.orange2,
   },
   input: mainColors.gray2,
-  dot: mainColors.gray3,
+  dot: {
+    primary: mainColors.gray3,
+    secondary: mainColors.lightgray3,
+  },
   border: mainColors.lightgray1,
   border2: mainColors.lightgray2,
   shadow: mainColors.shadow,

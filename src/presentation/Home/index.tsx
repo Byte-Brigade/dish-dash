@@ -65,7 +65,11 @@ const Home = ({ navigation }: HomeProps) => {
   return (
     <BottomSheetModalProvider>
       <View style={styles.page}>
-        <Header qty={0} onPress={() => navigation.navigate("Cart")} />
+        <Header
+          type="home-header"
+          qty={0}
+          onPress={() => navigation.navigate("Cart")}
+        />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.content}>
             <Text>Select by category</Text>
