@@ -14,6 +14,7 @@ import {
   Divider,
   Header,
   InputAddNote,
+  InputOrderType,
 } from "../../components";
 import DeliveryAddress from "../../components/atoms/DeliveryAddress";
 import { StackParams } from "../../router";
@@ -25,6 +26,8 @@ const Cart = ({ navigation }: CartProps) => {
   const [deliveryType, setDeliveryType] = useState<"delivery" | "pickup">(
     "delivery"
   );
+
+  const [modalType, setModalType] = useState<"delivery" | "note">("note");
 
   const [value, onChangeText] = useState("");
 
@@ -63,14 +66,40 @@ const Cart = ({ navigation }: CartProps) => {
           style={styles.container}
           showsVerticalScrollIndicator={false}
         >
-          <ChooseDelivery type={deliveryType} />
+          <ChooseDelivery
+            type={deliveryType}
+            onPress={() => {
+              handlePresentModalPress();
+              setModalType("delivery");
+            }}
+          />
           <Divider />
           {deliveryType === "delivery" ? <DeliveryAddress /> : <></>}
           <View style={styles.cartContent}>
-            <CartList onNotePress={handlePresentModalPress} />
-            <CartList onNotePress={handlePresentModalPress} />
-            <CartList onNotePress={handlePresentModalPress} />
-            <CartList onNotePress={handlePresentModalPress} />
+            <CartList
+              onNotePress={() => {
+                handlePresentModalPress();
+                setModalType("note");
+              }}
+            />
+            <CartList
+              onNotePress={() => {
+                handlePresentModalPress();
+                setModalType("note");
+              }}
+            />
+            <CartList
+              onNotePress={() => {
+                handlePresentModalPress();
+                setModalType("note");
+              }}
+            />
+            <CartList
+              onNotePress={() => {
+                handlePresentModalPress();
+                setModalType("note");
+              }}
+            />
           </View>
         </ScrollView>
         <CheckoutCard />
@@ -83,11 +112,19 @@ const Cart = ({ navigation }: CartProps) => {
           keyboardBlurBehavior="restore"
           onChange={handleSheetChanges}
         >
-          <InputAddNote
-            value={value}
-            onChangeText={(value) => onChangeText(value)}
-            onPress={handleClosePress}
-          />
+          {modalType === "delivery" ? (
+            <InputOrderType
+              onPickupPress={() => setDeliveryType("pickup")}
+              onDeliveryPress={() => setDeliveryType("delivery")}
+              type={deliveryType}
+            />
+          ) : (
+            <InputAddNote
+              value={value}
+              onChangeText={(value) => onChangeText(value)}
+              onPress={handleClosePress}
+            />
+          )}
         </BottomSheetModal>
       </View>
     </BottomSheetModalProvider>

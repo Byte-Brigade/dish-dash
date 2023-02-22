@@ -25,6 +25,8 @@ import IconMore from "./ic_more.svg";
 import IconNext from "./ic_next.svg";
 import IconStarRate from "./ic_star_rate.svg";
 import IconStarRateActive from "./ic_star_rate_active.svg";
+import IconRadioButton from "./ic_btn_radio.svg";
+import IconRadioButtonActive from "./ic_btn_radio_active.svg";
 
 export {
   IconCartMenu,
@@ -54,4 +56,6 @@ export {
   IconNext,
   IconStarRate,
   IconStarRateActive,
+  IconRadioButton,
+  IconRadioButtonActive,
 };

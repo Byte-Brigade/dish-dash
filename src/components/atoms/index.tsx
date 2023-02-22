@@ -7,6 +7,7 @@ import ChooseDelivery from "./ChooseDelivery";
 import Divider from "./Divider";
 import InputAddNote from "./InputAddNote";
 import DetailItem from "./DetailItem";
+import InputOrderType from "./InputOrderType";
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   Divider,
   InputAddNote,
   DetailItem,
+  InputOrderType,
 };
