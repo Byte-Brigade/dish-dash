@@ -5,28 +5,43 @@ import { colors } from "../../../utils";
 
 interface ChooseDeliveryProps {
   type: "delivery" | "pickup";
+  onPress: () => void;
 }
 
-const ChooseDelivery = ({ type }: ChooseDeliveryProps) => {
-  const Icon = () => {
+const ChooseDelivery = ({ type, onPress }: ChooseDeliveryProps) => {
+  const OrderType = () => {
     if (type === "delivery") {
-      return <IconDelivery />;
+      return (
+        <>
+          <View style={styles.iconOutline}>
+            <IconDelivery />
+          </View>
+          <View style={styles.content}>
+            <Text style={styles.text}>{type}</Text>
+            <Text>Arrived in 27 min</Text>
+          </View>
+        </>
+      );
     }
     if (type === "pickup") {
-      return <IconPickup />;
+      return (
+        <>
+          <View style={styles.iconOutline}>
+            <IconPickup />
+          </View>
+          <View style={styles.content}>
+            <Text style={styles.text}>{type}</Text>
+            <Text>Ready to take in 10 min</Text>
+          </View>
+        </>
+      );
     }
     return <IconDelivery />;
   };
   return (
     <View style={styles.container}>
-      <View style={styles.iconOutline}>
-        <Icon />
-      </View>
-      <View style={styles.content}>
-        <Text style={styles.text}>{type}</Text>
-        <Text>Arrived in 27 min</Text>
-      </View>
-      <TouchableOpacity style={styles.button}>
+      <OrderType />
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text style={styles.buttonText}>Change</Text>
       </TouchableOpacity>
     </View>
