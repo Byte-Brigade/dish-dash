@@ -12,6 +12,7 @@ const mainColors = {
   lightgray3: "#D9D9D9",
   orange1: "#F6825D",
   orange2: "#D2623D",
+  orange3: "#CF6A4A",
   shadow: "rgba(0,0,0,0.5)",
 };
 
@@ -25,6 +26,7 @@ export const colors = {
     primary: mainColors.purple1,
     input: mainColors.gray1,
     status: mainColors.orange2,
+    promo: "white",
   },
   input: mainColors.gray2,
   dot: {
@@ -37,4 +39,5 @@ export const colors = {
   button: {
     green: mainColors.green2,
   },
+  promo: mainColors.orange3,
 };

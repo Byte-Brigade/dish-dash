@@ -1,39 +1,31 @@
 import { StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
-import { Button, Gap, SearchInput } from "../../atoms";
+import React from "react";
+import { Button, Gap } from "../../atoms";
 import { colors } from "../../../utils";
 
-interface HomeHeaderProps {
+interface FavoriteHeaderProps {
   onPress: () => void;
   qty?: number;
-  name: string;
 }
 
-const HomeHeader = ({ onPress, qty, name }: HomeHeaderProps) => {
-  const [search, setSearch] = useState("");
+const FavoriteHeader = ({ onPress, qty }: FavoriteHeaderProps) => {
   return (
     <View style={styles.container}>
-      <Gap height={30} />
       <View style={styles.content}>
-        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>Favorite</Text>
         <Button type="btn-menu-cart" onPress={onPress} qty={qty} />
       </View>
-      <Gap height={16} />
-      <SearchInput
-        value={search}
-        onChangeText={(value) => setSearch(value)}
-        placeholder="Search your cravings"
-      />
     </View>
   );
 };
 
-export default HomeHeader;
+export default FavoriteHeader;
 
 const styles = StyleSheet.create({
   container: {
-    height: 167,
+    height: 81,
     backgroundColor: colors.primary,
+    paddingTop: 30,
     padding: 16,
     borderBottomStartRadius: 10,
     borderBottomEndRadius: 10,

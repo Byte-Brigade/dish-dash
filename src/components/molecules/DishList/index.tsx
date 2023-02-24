@@ -8,13 +8,28 @@ interface DishListProps {
   name: string;
   stars: number;
   rating: number;
+  promo: string;
   onPress: () => void;
 }
 
-const DishList = ({ pic, name, stars, rating, onPress }: DishListProps) => {
+const DishList = ({
+  pic,
+  name,
+  stars,
+  rating,
+  promo,
+  onPress,
+}: DishListProps) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={pic} style={styles.pic} />
+      {promo !== "0" ? (
+        <View style={styles.promoWrapper}>
+          <Text style={styles.promo}>{promo} off</Text>
+        </View>
+      ) : (
+        <></>
+      )}
       <TouchableOpacity style={styles.addFavWrapper}>
         <IconFavorite style={styles.addFav} />
       </TouchableOpacity>
@@ -50,6 +65,22 @@ const styles = StyleSheet.create({
     maxWidth: 162,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+  },
+  promoWrapper: {
+    position: "absolute",
+    backgroundColor: colors.promo,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5,
+    paddingHorizontal: 11,
+    paddingTop: 3,
+    paddingBottom: 4,
+    top: 4,
+    left: -3,
+  },
+  promo: {
+    color: colors.text.promo,
+    fontSize: 12,
   },
   addFavWrapper: {
     position: "absolute",
