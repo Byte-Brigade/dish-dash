@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../../../utils";
 import CartHeader from "./CartHeader";
+import FavoriteHeader from "./FavoriteHeader";
 import HomeHeader from "./HomeHeader";
 
 interface HeaderProps {
@@ -17,7 +18,11 @@ const Header = ({ onPress, qty, type, name }: HeaderProps) => {
   }
 
   if (type === "home-header") {
-    return <HomeHeader qty={qty} onPress={onPress!!} />;
+    return <HomeHeader name={name!!} qty={qty} onPress={onPress!!} />;
+  }
+
+  if (type === "fav-header") {
+    return <FavoriteHeader qty={qty} onPress={onPress!!} />;
   }
 
   return (

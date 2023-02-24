@@ -67,6 +67,7 @@ const Home = ({ navigation }: HomeProps) => {
       <View style={styles.page}>
         <Header
           type="home-header"
+          name="DishDash"
           qty={0}
           onPress={() => navigation.navigate("Cart")}
         />
@@ -101,6 +102,7 @@ const Home = ({ navigation }: HomeProps) => {
                       name={item.name}
                       stars={item.star}
                       rating={item.rating}
+                      promo={item.promo}
                       onPress={() => {
                         handlePresentModalPress();
                         setModalData(item);

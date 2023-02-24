@@ -7,6 +7,7 @@ import CartList from "./CartList";
 import CheckoutCard from "./CheckoutCard";
 import BottomModal from "./BottomSheet";
 import HistoryList from "./HistoryList";
+import FavList from "./FavList";
 
 export {
   BottomNavigation,
@@ -18,4 +19,5 @@ export {
   CheckoutCard,
   BottomModal,
   HistoryList,
+  FavList,
 };
